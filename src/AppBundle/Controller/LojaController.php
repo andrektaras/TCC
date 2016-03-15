@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Form\ClienteType;
+use AppBundle\Entity\Pessoa;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -28,7 +29,9 @@ class LojaController extends Controller
 	 */
 	public function cadastroAction(Request $request)
 	{
-		$form = $this->createForm(new ClienteType(), null);
+		$pessoa = new Pessoa();
+		
+		$form = $this->createForm(ClienteType::class, $pessoa);
 		
 		$form->handleRequest($request);
 		

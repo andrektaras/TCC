@@ -1,7 +1,17 @@
+{#
 {% extends 'base.html.twig' %}
+#}
 
 {% block body_id 'cliente_cadastro_novo' %}
 
 {% block main %}
     <h1>{{ 'title.post_new'|trans }}</h1>
+    
+    {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.telefone) }}
+
+        <input type="submit" value="{{ 'label.create_post'|trans }}" class="btn btn-primary" />
+        
+    {{ form_end(form) }}
 {% endblock %}
